@@ -161,30 +161,58 @@ const CharacterDetail: React.FC = () => {
         {/* Card de Informações Básicas */}
         <Col xs={24}>
           <Card title="Informações Básicas" bordered>
-            <p>
-              <strong>Nome:</strong> {character.name}
-            </p>
-            <p>
-              <strong>Altura:</strong> {character.height}
-            </p>
-            <p>
-              <strong>Massa:</strong> {character.mass}
-            </p>
-            <p>
-              <strong>Cabelo:</strong> {character.hair_color}
-            </p>
-            <p>
-              <strong>Pele:</strong> {character.skin_color}
-            </p>
-            <p>
-              <strong>Olhos:</strong> {character.eye_color}
-            </p>
-            <p>
-              <strong>Ano de Nascimento:</strong> {character.birth_year}
-            </p>
-            <p>
-              <strong>Gênero:</strong> {character.gender}
-            </p>
+            <Row gutter={[16, 16]}>
+              {/* Coluna de Informações */}
+              <Col xs={24} md={16}>
+                <p>
+                  <strong>Nome:</strong> {character.name}
+                </p>
+                <p>
+                  <strong>Altura:</strong> {character.height}
+                </p>
+                <p>
+                  <strong>Massa:</strong> {character.mass}
+                </p>
+                <p>
+                  <strong>Cabelo:</strong> {character.hair_color}
+                </p>
+                <p>
+                  <strong>Pele:</strong> {character.skin_color}
+                </p>
+                <p>
+                  <strong>Olhos:</strong> {character.eye_color}
+                </p>
+                <p>
+                  <strong>Ano de Nascimento:</strong> {character.birth_year}
+                </p>
+                <p>
+                  <strong>Gênero:</strong> {character.gender}
+                </p>
+              </Col>
+
+              {/* Coluna da Imagem */}
+              <Col xs={24} md={8}>
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    height: "100%",
+                  }}
+                >
+                  <img
+                    src={`../../public/${id}.jpg`} // Use o mapeamento de imagens
+                    alt={character.name}
+                    style={{
+                      maxWidth: "100%",
+                      maxHeight: "300px",
+                      borderRadius: "8px",
+                      boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
+                    }}
+                  />
+                </div>
+              </Col>
+            </Row>
           </Card>
         </Col>
 

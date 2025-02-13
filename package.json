@@ -20,6 +20,7 @@
     "@eslint/js": "^9.19.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^12.1.5",
+    "@types/node": "^22.13.2",
     "@types/react": "^17.0.83",
     "@types/react-dom": "^17.0.26",
     "@vitejs/plugin-react": "^4.3.4",
