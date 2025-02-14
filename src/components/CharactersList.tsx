@@ -1,7 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { Table, Input, Space, Pagination, Row, Col, message } from "antd";
+import {
+  Table,
+  Input,
+  Space,
+  Pagination,
+  Row,
+  Col,
+  message,
+  Empty,
+} from "antd";
 import { Character, fetchCharacters } from "../api/swapi";
 import { useNavigate, useSearchParams } from "react-router-dom";
+import { QuestionOutlined } from "@ant-design/icons";
 // import { getCharacterImage } from "../utils/getCharacterImage";
 
 const { Search } = Input;
@@ -146,6 +156,17 @@ const CharactersList: React.FC = () => {
     return parts[parts.length - 1];
   };
 
+  const customEmptyText = (
+    <Empty
+      image={<QuestionOutlined style={{ fontSize: 48, color: "#ffcc00" }} />}
+      description={
+        <span style={{ color: "#ffcc00" }}>
+          Desculpe, personagem não encontrado!
+        </span>
+      }
+    />
+  );
+
   return (
     <Space direction="vertical" style={{ width: "100%", padding: "20px" }}>
       {loading ? (
@@ -187,6 +208,9 @@ const CharactersList: React.FC = () => {
                 navigate(`/character/${id}`, { state: { prevPage: page } });
               },
             })}
+            locale={{
+              emptyText: customEmptyText,
+            }}
           />
           <Pagination
             current={page}
