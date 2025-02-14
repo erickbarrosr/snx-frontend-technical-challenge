@@ -163,7 +163,11 @@ const CharacterDetail: React.FC = () => {
 
   return (
     <div style={{ padding: "20px" }}>
-      <Button onClick={() => navigate(-1)} style={{ marginBottom: "20px" }}>
+      <Button
+        onClick={() => navigate(-1)}
+        style={{ marginBottom: "20px" }}
+        className="custom-back-button"
+      >
         Voltar
       </Button>
 
