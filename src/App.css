@@ -31,13 +31,12 @@ body {
 
 /* Estilos para temas */
 .light-theme {
-  background: #fff;
-  color: #ff0000;
+  background: #f8f8ff;
 }
 
 .dark-theme {
-  background: #141414;
-  color: rgba(255, 215, 0, 0.8);
+  background: url("./assets/background.jpg") no-repeat center center fixed;
+  background-size: cover;
 }
 
 /* Estilos adicionais */
