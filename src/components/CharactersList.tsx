@@ -181,6 +181,7 @@ const CharactersList: React.FC = () => {
             pagination={false}
             bordered
             onRow={(record) => ({
+              style: { cursor: "pointer" },
               onClick: () => {
                 const id = getIdFromUrl(record.url);
                 navigate(`/character/${id}`, { state: { prevPage: page } });
