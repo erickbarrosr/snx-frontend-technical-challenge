@@ -165,6 +165,7 @@ const CharactersList: React.FC = () => {
           <Row justify="center">
             <Col xs={24} sm={12} md={8}>
               <Search
+                className="custom-search custom-input"
                 placeholder="Busque por um personagem"
                 enterButton={false}
                 size="large"
@@ -190,6 +191,7 @@ const CharactersList: React.FC = () => {
             current={page}
             total={filteredCharacters.length}
             pageSize={pageSize}
+            showSizeChanger={false}
             onChange={(newPage) => {
               sessionStorage.setItem("currentPage", String(newPage));
               setPage(newPage);
