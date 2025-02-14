@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { ConfigProvider, theme, Switch } from "antd";
+import { SunOutlined, MoonOutlined } from "@ant-design/icons";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import CharactersList from "./components/CharactersList";
 import CharacterDetail from "./components/CharacterDetail";
@@ -31,9 +32,16 @@ const App: React.FC = () => {
               />
             </a>
             <Switch
-              checkedChildren="Dark"
-              unCheckedChildren="Light"
+              checkedChildren={<MoonOutlined />}
+              unCheckedChildren={<SunOutlined style={{ color: "#ffcc00" }} />}
               onChange={toggleTheme}
+              style={{
+                backgroundColor: darkMode ? "#001529" : "#f0f2f5",
+                border: darkMode ? "1px solid #1890ff" : "1px solid #d9d9d9",
+              }}
+              className={`theme-switch ${
+                darkMode ? "neon-effect-blue" : "neon-effect-yellow"
+              }`}
             />
           </header>
           <main className="content">
