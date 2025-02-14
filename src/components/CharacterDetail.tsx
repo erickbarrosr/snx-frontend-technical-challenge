@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { Card, Row, Col, Button, message } from "antd";
 import axios from "axios";
 import { Character } from "../api/swapi";
@@ -57,7 +57,16 @@ const CharacterDetail: React.FC = () => {
   const [speciesData, setSpeciesData] = useState<SpeciesData[]>([]);
   const [vehiclesData, setVehiclesData] = useState<VehicleData[]>([]);
   const [starshipsData, setStarshipsData] = useState<StarshipData[]>([]);
+
   const navigate = useNavigate();
+  const location = useLocation();
+  const prevPage = location.state?.prevPage || 1;
+
+  useEffect(() => {
+    if (prevPage) {
+      sessionStorage.setItem("currentPage", String(prevPage));
+    }
+  }, [prevPage]);
 
   // Busca os dados básicos do personagem
   useEffect(() => {
@@ -157,6 +166,7 @@ const CharacterDetail: React.FC = () => {
       <Button onClick={() => navigate(-1)} style={{ marginBottom: "20px" }}>
         Voltar
       </Button>
+
       <Row gutter={[16, 16]}>
         {/* Card de Informações Básicas */}
         <Col xs={24}>
