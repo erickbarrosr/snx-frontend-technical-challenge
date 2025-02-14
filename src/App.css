@@ -59,6 +59,28 @@ body {
   box-shadow: 0px 0px 8px rgba(173, 216, 230, 0.8);
 }
 
+.ant-input-search-button {
+  display: none !important;
+}
+
+.custom-search .ant-input {
+  border-radius: 4px !important;
+}
+
+.custom-search .ant-input-search {
+  border-radius: 4px !important;
+}
+
+.custom-input:hover .ant-input,
+.custom-input:hover .ant-input:focus {
+  border-color: rgba(
+    173,
+    216,
+    230,
+    0.8
+  ) !important; /* Substitua pela cor desejada */
+}
+
 .futuristic-spinner {
   position: relative;
   width: 50px;
