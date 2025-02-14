@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Table, Input, Space, Pagination, Row, Col, message } from "antd";
 import { Character, fetchCharacters } from "../api/swapi";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 // import { getCharacterImage } from "../utils/getCharacterImage";
 
 const { Search } = Input;
@@ -21,15 +21,31 @@ const CharactersList: React.FC = () => {
   const [allCharacters, setAllCharacters] = useState<Character[]>([]);
   const [filteredCharacters, setFilteredCharacters] = useState<Character[]>([]);
   const [loading, setLoading] = useState(false);
-  const [page, setPage] = useState(1);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const initialPage = Number(searchParams.get("page")) || 1;
+  const [page, setPage] = useState(initialPage);
   const [inputValue, setInputValue] = useState("");
   const pageSize = 10;
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (Number(searchParams.get("page")) !== page) {
+      setSearchParams({ page: String(page) });
+    }
+  }, [page, setSearchParams, searchParams]);
 
   // Função para buscar todos os personagens
   const fetchAllData = async () => {
     setLoading(true);
     try {
+      const storedData = sessionStorage.getItem("charactersData");
+      if (storedData) {
+        const parsedData = JSON.parse(storedData);
+        setAllCharacters(parsedData);
+        setFilteredCharacters(parsedData);
+        return;
+      }
+
       let pageNumber = 1;
       let allData: Character[] = [];
       let response;
@@ -38,6 +54,8 @@ const CharactersList: React.FC = () => {
         allData = allData.concat(response.results);
         pageNumber++;
       } while (response.next !== null);
+
+      sessionStorage.setItem("charactersData", JSON.stringify(allData));
       setAllCharacters(allData);
       setFilteredCharacters(allData);
     } catch (error) {
@@ -49,6 +67,10 @@ const CharactersList: React.FC = () => {
   };
 
   useEffect(() => {
+    const storedPage = sessionStorage.getItem("currentPage");
+    if (storedPage) {
+      setPage(Number(storedPage));
+    }
     fetchAllData();
   }, []);
 
@@ -120,6 +142,7 @@ const CharactersList: React.FC = () => {
   // Função auxiliar para extrair o ID
   const getIdFromUrl = (url: string): string => {
     const parts = url.split("/").filter(Boolean);
+
     return parts[parts.length - 1];
   };
 
@@ -159,7 +182,7 @@ const CharactersList: React.FC = () => {
             onRow={(record) => ({
               onClick: () => {
                 const id = getIdFromUrl(record.url);
-                navigate(`/character/${id}`);
+                navigate(`/character/${id}`, { state: { prevPage: page } });
               },
             })}
           />
@@ -167,7 +190,10 @@ const CharactersList: React.FC = () => {
             current={page}
             total={filteredCharacters.length}
             pageSize={pageSize}
-            onChange={(page) => setPage(page)}
+            onChange={(newPage) => {
+              sessionStorage.setItem("currentPage", String(newPage));
+              setPage(newPage);
+            }}
             style={{ textAlign: "center", marginTop: "20px" }}
           />
         </>
