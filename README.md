@@ -25,6 +25,7 @@ Página de detalhes no Light Theme:
 - **Listagem de personagens:** Interface com grid utilizando Ant Design.
 - **Filtro por nome:** Busque personagens pelo nome.
 - **Paginação:** 10 registros por página com botões de navegação.
+- **Página de detalhes de personagens:** Cards segmentados por informações.
 - **Responsividade:** Layout responsivo com Ant Design.
 - **Testes Unitários:** Testes escritos com Jest e React Testing Library.
 - **Containerização:** Aplicação conteinerizada com Docker.
