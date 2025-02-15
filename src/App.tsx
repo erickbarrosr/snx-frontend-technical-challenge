@@ -4,6 +4,7 @@ import { SunOutlined, MoonOutlined } from "@ant-design/icons";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import CharactersList from "./components/CharactersList";
 import CharacterDetail from "./components/CharacterDetail";
+import logo from "../src/assets/logo.png";
 import "./App.css";
 
 const App: React.FC = () => {
@@ -26,7 +27,7 @@ const App: React.FC = () => {
           <header className="header">
             <a href="/">
               <img
-                src="../src/assets/logo.png"
+                src={logo}
                 alt="Logo Star Wars"
                 style={{ cursor: "pointer" }}
               />
