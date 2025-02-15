@@ -54,3 +54,41 @@ Página de detalhes no Light Theme:
    ```bash
    cd snx-frontend-technical-challenge
    ```
+
+3. **Instale as dependências:**
+
+   ```bash
+   npm install
+   ```
+
+4. **Execute a aplicação:**
+
+   ```bash
+   npm run dev
+   ```
+
+   A aplicação ficará disponível em http://localhost:5173.
+
+### Rodando os testes
+
+1. **Execute o script de teste:**
+
+   ```bash
+   npm test
+   ```
+
+### Usando Docker
+
+1. **Construa a imagem:**
+
+   ```bash
+   docker build -t snx-frontend-technical-challenge .
+   ```
+
+2. **Execute o container:**
+
+   ```bash
+   docker run -p 3000:3000 snx-frontend-technical-challenge
+   ```
+
+   Acesse a aplicação em http://localhost:3000.
