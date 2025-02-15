@@ -37,7 +37,7 @@ Página de detalhes no Light Theme:
 - Ant Design
 - Axios
 - Docker
-- Vitest & React Testing Library
+- Jest & React Testing Library
 
 ## Como Executar
 
