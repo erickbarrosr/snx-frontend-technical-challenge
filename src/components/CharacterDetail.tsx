@@ -215,7 +215,7 @@ const CharacterDetail: React.FC = () => {
                   }}
                 >
                   <img
-                    src={`../../public/${id}.jpg`} // Use o mapeamento de imagens
+                    src={`/${id}.jpg`}
                     alt={character.name}
                     style={{
                       maxWidth: "100%",
