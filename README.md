@@ -2,6 +2,10 @@
 
 Aplicação que lista personagens de Star Wars utilizando a API SWAPI (https://swapi.dev/).
 
+## Live Link:
+
+https://star-wars-characters-list.vercel.app
+
 ## Preview 📸
 
 Página de listagem no Dark Theme:
