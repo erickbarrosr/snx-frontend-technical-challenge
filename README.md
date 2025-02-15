@@ -1,6 +1,6 @@
 # Star Wars Characters
 
-Aplicação que lista personagens de Star Wars utilizando a API SWAPI.
+Aplicação que lista personagens de Star Wars utilizando a API SWAPI (https://swapi.dev/).
 
 ### Página de listagem no Dark Theme
 
@@ -26,3 +26,24 @@ Aplicação que lista personagens de Star Wars utilizando a API SWAPI.
 - **Responsividade:** Layout responsivo com Ant Design.
 - **Testes Unitários:** Testes escritos com Jest e React Testing Library.
 - **Containerização:** Aplicação conteinerizada com Docker.
+
+## Tecnologias Utilizadas
+
+- ReactJS 17
+- TypeScript
+- Vite
+- Ant Design
+- Axios
+- Docker
+- Vitest & React Testing Library
+
+## Como Executar
+
+### Localmente
+
+1. **Clone o repositório:**
+
+   ```bash
+   git clone https://github.com/erickbarrosr/snx-frontend-technical-challenge.gits
+   cd snx-frontend-technical-challenge
+   ```
