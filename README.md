@@ -49,6 +49,6 @@ Aplicação que lista personagens de Star Wars utilizando a API SWAPI (https://s
 
 2. **Entre no diretório do projeto:**
 
-```bash
-cd snx-frontend-technical-challenge
-```
+   ```bash
+   cd snx-frontend-technical-challenge
+   ```
