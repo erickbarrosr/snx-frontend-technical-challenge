@@ -44,6 +44,11 @@ Aplicação que lista personagens de Star Wars utilizando a API SWAPI (https://s
 1. **Clone o repositório:**
 
    ```bash
-   git clone https://github.com/erickbarrosr/snx-frontend-technical-challenge.gits
-   cd snx-frontend-technical-challenge
+   git clone https://github.com/erickbarrosr/snx-frontend-technical-challenge.git
    ```
+
+2. **Entre no diretório do projeto:**
+
+```bash
+cd snx-frontend-technical-challenge
+```
