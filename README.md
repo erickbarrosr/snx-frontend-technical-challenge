@@ -93,3 +93,15 @@ Página de detalhes no Light Theme:
    ```
 
    Acesse a aplicação em http://localhost:3000.
+
+## Dúvidas e Suporte ⁉️
+
+Se você tiver alguma dúvida sobre o projeto, encontrou um problema ou precisa de ajuda, sinta-se à vontade para entrar em contato comigo.
+
+### Contato Direto 📧
+
+Se preferir, você pode entrar em contato diretamente no e-mail: erickbarrosrezende@gmail.com
+
+## Contribuindo 🤝
+
+Se você gostaria de contribuir para o projeto, sinta-se a vontade : )
