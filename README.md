@@ -2,6 +2,11 @@
 
 Aplicação que lista personagens de Star Wars utilizando a API SWAPI.
 
+<img src="https://github.com/erickbarrosr/snx-frontend-technical-challenge/blob/main/public/preview1.png" alt="Dark Theme Preview" height="500">
+<img src="https://github.com/erickbarrosr/snx-frontend-technical-challenge/blob/main/public/preview2.png" alt="Light Theme Preview" height="500">
+<img src="https://github.com/erickbarrosr/snx-frontend-technical-challenge/blob/main/public/preview3.png" alt="Details Preview" height="500">
+<img src="https://github.com/erickbarrosr/snx-frontend-technical-challenge/blob/main/public/preview4.pngs" alt="Details Preview" height="500">
+
 ## Funcionalidades
 
 - **Listagem de personagens:** Interface com grid utilizando Ant Design.
