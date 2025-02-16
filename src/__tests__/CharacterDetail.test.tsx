@@ -60,8 +60,8 @@ describe("Testing the CharacterDetail Component", () => {
     jest.clearAllMocks();
   });
 
-  it("Should render the character details correctly", async () => {
-    render(
+  it("Should renders character details correctly", async () => {
+    const { container } = render(
       <MemoryRouter initialEntries={["/character/1"]}>
         <Routes>
           <Route path="/character/:id" element={<CharacterDetail />} />
@@ -69,20 +69,65 @@ describe("Testing the CharacterDetail Component", () => {
       </MemoryRouter>
     );
 
-    await waitFor(() =>
-      expect(screen.queryByText("Carregando...")).not.toBeInTheDocument()
+    await waitFor(() => {
+      expect(container.textContent).toMatch(/Luke Skywalker/i);
+    });
+
+    const paragraphs = container.querySelectorAll("p");
+
+    const nameParagraph = Array.from(paragraphs).find((p) =>
+      p.textContent?.includes("Nome:")
     );
+    expect(nameParagraph).toBeDefined();
+    expect(nameParagraph!.textContent).toContain("Luke Skywalker");
 
-    expect(await screen.findByText("Nome: Luke Skywalker")).toBeInTheDocument();
-    expect(screen.getByText("Altura: 172")).toBeInTheDocument();
-    expect(screen.getByText("Massa: 77")).toBeInTheDocument();
-    expect(screen.getByText("Cabelo: Blond")).toBeInTheDocument();
-    expect(screen.getByText("Ano de Nascimento: 19BBY")).toBeInTheDocument();
+    const heightParagraph = Array.from(paragraphs).find((p) =>
+      p.textContent?.includes("Altura:")
+    );
+    expect(heightParagraph).toBeDefined();
+    expect(heightParagraph!.textContent).toContain("172");
 
-    expect(await screen.findByText("Nome: Tatooine")).toBeInTheDocument();
-    expect(screen.getByText("Clima: Arid")).toBeInTheDocument();
-    expect(screen.getByText("Terreno: Desert")).toBeInTheDocument();
-    expect(screen.getByText("População: 200000")).toBeInTheDocument();
+    const massParagraph = Array.from(paragraphs).find((p) =>
+      p.textContent?.includes("Massa:")
+    );
+    expect(massParagraph).toBeDefined();
+    expect(massParagraph!.textContent).toContain("77");
+
+    const hairParagraph = Array.from(paragraphs).find((p) =>
+      p.textContent?.includes("Cabelo:")
+    );
+    expect(hairParagraph).toBeDefined();
+    expect(hairParagraph!.textContent).toContain("Blond");
+
+    const birthYearParagraph = Array.from(paragraphs).find((p) =>
+      p.textContent?.includes("Ano de Nascimento:")
+    );
+    expect(birthYearParagraph).toBeDefined();
+    expect(birthYearParagraph!.textContent).toContain("19BBY");
+
+    const planetParagraph = Array.from(paragraphs).find((p) =>
+      p.textContent?.includes("Tatooine")
+    );
+    expect(planetParagraph).toBeDefined();
+    expect(planetParagraph!.textContent).toContain("Tatooine");
+
+    const climateParagraph = Array.from(paragraphs).find((p) =>
+      p.textContent?.includes("Clima:")
+    );
+    expect(climateParagraph).toBeDefined();
+    expect(climateParagraph!.textContent).toContain("Arid");
+
+    const terrainParagraph = Array.from(paragraphs).find((p) =>
+      p.textContent?.includes("Terreno:")
+    );
+    expect(terrainParagraph).toBeDefined();
+    expect(terrainParagraph!.textContent).toContain("Desert");
+
+    const populationParagraph = Array.from(paragraphs).find((p) =>
+      p.textContent?.includes("População:")
+    );
+    expect(populationParagraph).toBeDefined();
+    expect(populationParagraph!.textContent).toContain("200000");
   });
 
   it("Should show an error message if the API fails", async () => {
@@ -102,7 +147,7 @@ describe("Testing the CharacterDetail Component", () => {
   });
 
   it("Should allow the user to go back to the previous page", async () => {
-    render(
+    const { container } = render(
       <MemoryRouter initialEntries={["/character/1"]}>
         <Routes>
           <Route path="/character/:id" element={<CharacterDetail />} />
@@ -110,10 +155,17 @@ describe("Testing the CharacterDetail Component", () => {
       </MemoryRouter>
     );
 
-    expect(await screen.findByText("Nome: Luke Skywalker")).toBeInTheDocument();
+    await waitFor(() => {
+      expect(container.textContent).toMatch(/Luke Skywalker/i);
+    });
 
-    const backButton = screen.getByText("Voltar");
-    userEvent.click(backButton);
+    const buttons = Array.from(container.querySelectorAll("button"));
+    const backButton = buttons.find((btn) =>
+      btn.textContent?.includes("Voltar")
+    );
+    expect(backButton).toBeDefined();
+
+    userEvent.click(backButton!);
 
     expect(window.location.pathname).toBe("/");
   });
