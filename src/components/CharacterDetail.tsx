@@ -68,7 +68,6 @@ const CharacterDetail: React.FC = () => {
     }
   }, [prevPage]);
 
-  // Busca os dados básicos do personagem
   useEffect(() => {
     const fetchCharacterDetail = async () => {
       setLoading(true);
@@ -88,17 +87,15 @@ const CharacterDetail: React.FC = () => {
     fetchCharacterDetail();
   }, [id]);
 
-  // Quando o personagem for carregado, busca os dados adicionais
   useEffect(() => {
     if (character) {
-      // Busca dados do planeta natal (homeworld)
       if (character.homeworld) {
         axios
           .get<HomeworldData>(character.homeworld)
           .then((response) => setHomeworldData(response.data))
           .catch((err) => console.error(err));
       }
-      // Busca dados dos filmes
+
       if (character.films.length > 0) {
         Promise.all(
           character.films.map((url) =>
@@ -108,7 +105,7 @@ const CharacterDetail: React.FC = () => {
           .then((data) => setFilmsData(data))
           .catch((err) => console.error(err));
       }
-      // Busca dados das espécies
+
       if (character.species.length > 0) {
         Promise.all(
           character.species.map((url) =>
@@ -118,7 +115,7 @@ const CharacterDetail: React.FC = () => {
           .then((data) => setSpeciesData(data))
           .catch((err) => console.error(err));
       }
-      // Busca dados dos veículos
+
       if (character.vehicles.length > 0) {
         Promise.all(
           character.vehicles.map((url) =>
@@ -128,7 +125,7 @@ const CharacterDetail: React.FC = () => {
           .then((data) => setVehiclesData(data))
           .catch((err) => console.error(err));
       }
-      // Busca dados das naves espaciais
+
       if (character.starships.length > 0) {
         Promise.all(
           character.starships.map((url) =>

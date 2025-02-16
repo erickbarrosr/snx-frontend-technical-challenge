@@ -1,7 +1,5 @@
-// src/setupTests.ts
 import "@testing-library/jest-dom";
 
-// Polyfill para window.matchMedia
 if (!window.matchMedia) {
   Object.defineProperty(window, "matchMedia", {
     writable: true,
@@ -9,8 +7,8 @@ if (!window.matchMedia) {
       matches: false,
       media: query,
       onchange: null,
-      addListener: jest.fn(), // Deprecated
-      removeListener: jest.fn(), // Deprecated
+      addListener: jest.fn(),
+      removeListener: jest.fn(),
       addEventListener: jest.fn(),
       removeEventListener: jest.fn(),
       dispatchEvent: jest.fn(),

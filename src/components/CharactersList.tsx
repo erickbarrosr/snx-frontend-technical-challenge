@@ -12,7 +12,6 @@ import {
 import { Character, fetchCharacters } from "../api/swapi";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { QuestionOutlined } from "@ant-design/icons";
-// import { getCharacterImage } from "../utils/getCharacterImage";
 
 const { Search } = Input;
 
@@ -44,7 +43,6 @@ const CharactersList: React.FC = () => {
     }
   }, [page, setSearchParams, searchParams]);
 
-  // Função para buscar todos os personagens
   const fetchAllData = async () => {
     setLoading(true);
     try {
@@ -84,7 +82,6 @@ const CharactersList: React.FC = () => {
     fetchAllData();
   }, []);
 
-  // Função para filtrar os personagens usando regex
   const handleSearch = (value: string) => {
     setPage(1);
     try {
@@ -101,31 +98,17 @@ const CharactersList: React.FC = () => {
     }
   };
 
-  // Atualiza o filtro em tempo real (live search)
   useEffect(() => {
     handleSearch(inputValue);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [inputValue, allCharacters]);
 
-  // Dados da página atual
   const currentData = filteredCharacters.slice(
     (page - 1) * pageSize,
     page * pageSize
   );
 
   const columns = [
-    // {
-    //   title: "Imagem",
-    //   dataIndex: "url",
-    //   key: "image",
-    //   render: (url: string) => (
-    //     <img
-    //       src={getCharacterImage(url)}
-    //       alt="Personagem"
-    //       style={{ width: 80, height: 80, borderRadius: "8px" }}
-    //     />
-    //   ),
-    // },
     {
       title: "Nome",
       dataIndex: "name",
@@ -146,10 +129,8 @@ const CharactersList: React.FC = () => {
       dataIndex: "gender",
       key: "gender",
     },
-    // Outras colunas, se necessário
   ];
 
-  // Função auxiliar para extrair o ID
   const getIdFromUrl = (url: string): string => {
     const parts = url.split("/").filter(Boolean);
 
