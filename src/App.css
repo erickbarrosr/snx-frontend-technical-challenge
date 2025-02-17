@@ -274,3 +274,19 @@ body {
   color: rgba(255, 215, 0, 0.8) !important;
   box-shadow: 0 0 10px rgba(255, 215, 0, 0.8) !important;
 }
+
+@media (max-width: 425px) {
+  .responsive-table .ant-table {
+    font-size: 12px;
+  }
+
+  .responsive-table .ant-table-thead > tr > th {
+    font-size: 12px;
+    white-space: nowrap;
+  }
+
+  .responsive-table .ant-table-tbody > tr > td {
+    font-size: 8.4px;
+    white-space: nowrap;
+  }
+}
