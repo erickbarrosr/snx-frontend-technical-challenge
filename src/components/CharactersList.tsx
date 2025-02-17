@@ -182,6 +182,7 @@ const CharactersList: React.FC = () => {
             rowKey="name"
             pagination={false}
             bordered
+            scroll={{ x: "max-content" }}
             onRow={(record) => ({
               style: { cursor: "pointer" },
               onClick: () => {
@@ -192,6 +193,7 @@ const CharactersList: React.FC = () => {
             locale={{
               emptyText: customEmptyText,
             }}
+            className="responsive-table"
           />
           <Pagination
             current={page}
